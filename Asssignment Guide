@@ -1,0 +1,66 @@
+📘 Project Title:
+    Event Management API System
+
+🧾 Description:
+    This system allows users to register for events, track attendance, and manage both event information and speaker details. It supports CRUD operations and enforces simple validation and relationships between the entities.
+
+🧩 Entities:
+    1. User
+id: Unique identifier
+name: Full name
+email: Email address
+is_active: Boolean to indicate if the user is active (default: True)
+    2. Event
+id: Unique identifier
+title: Name of the event
+location: Location of the event
+date: Date of the event
+is_open: Whether the event is accepting new attendees (default: True)
+    3. Speaker
+id: Unique identifier
+name: Name of the speaker
+topic: Topic they’ll be presenting
+    4. Registration
+id: Unique identifier
+user_id: ID of the registering user
+event_id: ID of the event
+registration_date: When the user registered
+attended: Whether the user attended (default: False)
+
+
+    ✅ API Endpoints
+    👤 User Endpoints
+Create, read, update, delete users
+Deactivate user (set is_active to False)
+    🗓️ Event Endpoints
+CRUD for events
+Close event registration (is_open = False)
+
+    📝 Registration Endpoints
+Register a user for an event
+Only active users can register
+Users cannot register more than once for the same event
+Event must be open
+Mark attendance (set attended to True)
+View registrations for a specific user
+View all registrations
+⚙️ Technical Requirements
+Use Pydantic models for validation
+Store data in in-memory lists or dictionaries
+Follow modular structure:
+main.py
+schemas/
+routes/
+services/
+Return appropriate HTTP status codes for all operations
+📝Notes:
+Make sure your app is initialized with 3 speakers.
+User creation should not be anything complicated. Stick to the Entity representation for User.
+Authentication is not required to access the endpoints.
+🧪 Optional (for the highly inspired😁):
+Filter users who attended at least one event
+Submission Instructions:
+Develop the project using FastAPI.
+Add a README.md file with instructions on how to run the application.
+Push your code to a public GitHub repository.
+Submit an accessible GitHub link to AltSchool of Engineering Tinyuka Second Semester Project Submission (Python)
