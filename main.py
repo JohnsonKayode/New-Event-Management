@@ -6,7 +6,7 @@ from router.userRouter import user_router
 app = FastAPI()
 
 
-include_router = APIRouter(user_router)
+app.include_router(user_router)
 
 @app.get("/")
 def mainHome():

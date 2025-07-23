@@ -1,13 +1,16 @@
 from pydantic import BaseModel
 
+from typing import Optional
 
-class UserSchema(Basemodel):
+
+class UserSchema(BaseModel):
     id: int
     name: str
     email: str
     is_active: bool = True
 
 class UpdateUserSchema(BaseModel):
-    name: str | None = None
-    email: str | None = None
-    is_active: bool | None = None
+    id: int
+    name: Optional[str]
+    email: Optional[str]
+    is_active: Optional[bool]
