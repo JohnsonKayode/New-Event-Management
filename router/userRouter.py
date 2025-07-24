@@ -27,14 +27,24 @@ def createUser(user: UserSchema):
 
 @user_router.patch("/user/{id}/status")
 def updateUser(id: int, user: UpdateUserSchema):
-    if user.id not in user_db:
+    if id not in user_db:
         return f"This User doess not exist"
     
-    details = user_db[id] = user.model_dump()
-    user_db.update({id: details})
+    user_db[id].update(user.model_dump(exclude_unset=True))
+    details = user_db[id]
     return {
         "message" : "User Updated successfully",
         "details" : details
     }
     
+@user_router.delete("/user/{id}")
+async def deleteUser(id: int):
+    if id not in user_db:
+        return f"This user does not exist"
+    
+    details = user_db.pop(id)
+    return {
+        "message" : "this user is not deleted",
+        "details" : details
+    }
 
