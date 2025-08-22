@@ -1,16 +1,16 @@
 from pydantic import BaseModel
-
+from uuid import UUID
 from typing import Optional
 
 
 class UserSchema(BaseModel):
-    id: int
+    id: UUID
     name: str
     email: str
     is_active: bool = True
 
 class UpdateUserSchema(BaseModel):
-    id: int
-    name: Optional[str]
-    email: Optional[str]
-    is_active: Optional[bool]
+    id: UUID 
+    name: Optional[str] = None
+    email: Optional[str] = None
+    is_active: Optional[bool] = None

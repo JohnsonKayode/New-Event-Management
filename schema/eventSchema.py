@@ -11,7 +11,7 @@ class Event(BaseModel):
 
 class UpdateEvent(BaseModel):
     id: Optional[str]
-    title: Optional[str]
-    location: Optional[str]
-    date: Optional[str]
-    is_open: Optional[bool] = True
+    title: Optional[str] = None
+    location: Optional[str] = None
+    date: Optional[str] = None
+    is_open: Optional[bool] = None

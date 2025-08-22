@@ -34,4 +34,4 @@ async def deleteEvent(id: int):
         "message" : "this event no longer exists",
         "details" : details
     }
-    
+
